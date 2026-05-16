@@ -1,0 +1,13 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"field_id": "field-north"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-90.0,38.0],[-90.0,38.01],[-89.99,38.01],[-89.99,38.0],[-90.0,38.0]]]
+      }
+    }
+  ]
+}

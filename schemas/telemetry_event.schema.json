@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Telemetry Event",
+  "type": "object",
+  "required": [
+    "event_id",
+    "tenant_id",
+    "farm_id",
+    "device_id",
+    "metric",
+    "value",
+    "timestamp"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "farm_id": {
+      "type": "string"
+    },
+    "field_id": {
+      "type": "string"
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "metric": {
+      "type": "string"
+    },
+    "value": {
+      "type": [
+        "number",
+        "string",
+        "boolean"
+      ]
+    },
+    "unit": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "location": {
+      "type": "object"
+    },
+    "quality": {
+      "type": "string"
+    }
+  }
+}

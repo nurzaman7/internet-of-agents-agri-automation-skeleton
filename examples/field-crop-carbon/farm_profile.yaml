@@ -1,0 +1,50 @@
+tenant_id: demo-tenant
+farm_id: demo-farm
+name: Demo Research Farm
+timezone: America/Chicago
+fields:
+  - field_id: field-north
+    crop: maize
+    area_ha: 12.4
+    boundary_geojson: examples/field-crop-carbon/boundary.geojson
+    automation_mode: recommendation_only
+  - field_id: field-south
+    crop: sorghum
+    area_ha: 8.1
+    boundary_geojson: examples/field-crop-carbon/boundary.geojson
+    automation_mode: recommendation_only
+edge_nodes:
+  - edge_id: edge-gateway-01
+    location: field-north
+    hardware: industrial-pc
+    protocols: [mqtt, lora, modbus, mavlink]
+devices:
+  - device_id: soil-001
+    type: soil_sensor
+    field_id: field-north
+    metrics: [soil_moisture, soil_temperature, electrical_conductivity]
+  - device_id: weather-001
+    type: weather_station
+    field_id: field-north
+    metrics: [wind_speed, precipitation, temperature, humidity]
+  - device_id: carbon-001
+    type: gas_sensor
+    field_id: field-north
+    metrics: [co2, ch4]
+  - device_id: uav-001
+    type: uav
+    field_id: field-north
+    capabilities: [rgb_imaging, multispectral_imaging]
+  - device_id: rover-001
+    type: robot
+    field_id: field-south
+    capabilities: [scouting, soil_sampling]
+  - device_id: valve-001
+    type: irrigation_valve
+    field_id: field-north
+    capabilities: [open, close]
+objectives:
+  - detect_crop_stress
+  - optimize_irrigation
+  - monitor_carbon_footprint
+  - generate_operator_reports

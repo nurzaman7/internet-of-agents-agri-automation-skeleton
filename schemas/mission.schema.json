@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mission Request",
+  "type": "object",
+  "required": [
+    "mission_id",
+    "tenant_id",
+    "farm_id",
+    "mission_type",
+    "target"
+  ],
+  "properties": {
+    "mission_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "farm_id": {
+      "type": "string"
+    },
+    "field_id": {
+      "type": "string"
+    },
+    "mission_type": {
+      "type": "string"
+    },
+    "target": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "object"
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "requires_human_approval": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Carbon Event",
+  "type": "object",
+  "required": [
+    "event_id",
+    "tenant_id",
+    "farm_id",
+    "source_type",
+    "gas",
+    "quantity",
+    "unit",
+    "scope",
+    "timestamp"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "farm_id": {
+      "type": "string"
+    },
+    "field_id": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string"
+    },
+    "gas": {
+      "type": "string",
+      "enum": [
+        "co2",
+        "ch4",
+        "n2o",
+        "co2e"
+      ]
+    },
+    "quantity": {
+      "type": "number"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "scope_1",
+        "scope_2",
+        "scope_3",
+        "biogenic"
+      ]
+    },
+    "method": {
+      "type": "string"
+    },
+    "factor_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

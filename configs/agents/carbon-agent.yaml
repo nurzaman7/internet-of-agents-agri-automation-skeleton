@@ -1,0 +1,25 @@
+id: carbon-agent
+name: Carbon Agent
+version: 0.1.0
+role: sustainability
+runs_on: [cloud, edge]
+description: Converts field activities, energy use, fuel logs, fertilizer use, soil data, and sensor readings into carbon events.
+capabilities:
+  - carbon.activity_ingest
+  - carbon.estimate
+  - carbon.report
+  - carbon.audit_trace
+tools:
+  - carbon.factor_lookup
+  - timeseries.query
+  - report.generate
+inputs:
+  - carbon_activity_event
+  - telemetry_event
+outputs:
+  - carbon_event
+  - carbon_report
+risk_level: medium
+auth_scopes:
+  - carbon:read
+  - carbon:write

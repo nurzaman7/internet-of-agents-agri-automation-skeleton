@@ -1,0 +1,23 @@
+id: field-monitor-agent
+name: Field Monitor Agent
+version: 0.1.0
+role: monitor
+runs_on: [edge, cloud]
+description: Watches telemetry streams, detects anomalies, and opens agronomic investigation tasks.
+capabilities:
+  - ingest.telemetry
+  - detect.anomaly
+  - summarize.field_status
+tools:
+  - mqtt.subscribe
+  - timeseries.query
+  - gis.lookup
+inputs:
+  - telemetry_event
+outputs:
+  - anomaly_event
+  - recommendation
+risk_level: medium
+auth_scopes:
+  - telemetry:read
+  - field:read

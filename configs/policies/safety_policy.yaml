@@ -1,0 +1,27 @@
+version: 0.1.0
+mode: recommendation_first
+require_human_approval:
+  - uav.launch
+  - uav.land
+  - robot.move
+  - vehicle.dispatch
+  - irrigation.open_valve
+  - sprayer.apply
+  - pump.start
+hard_blocks:
+  max_wind_speed_mps_for_uav: 5.0
+  max_precipitation_mm_hr_for_uav: 2.5
+  no_spray_when_wind_mps_above: 3.0
+  no_vehicle_operation_without_geofence: true
+  no_actuation_when_emergency_stop_active: true
+rate_limits:
+  irrigation.open_valve:
+    max_duration_minutes: 30
+    cooldown_minutes: 15
+  pump.start:
+    max_duration_minutes: 20
+    cooldown_minutes: 10
+audit:
+  write_decision_record: true
+  store_tool_inputs: true
+  store_tool_outputs: true

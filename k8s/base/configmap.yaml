@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: agri-agent-mesh-config
+data:
+  PROJECT_NAME: AgriAgentMesh
+  ENVIRONMENT: production
+  LLM_PROVIDER: openai
+  MQTT_HOST: mosquitto
+  MQTT_PORT: "1883"

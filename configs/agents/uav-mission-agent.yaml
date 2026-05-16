@@ -1,0 +1,27 @@
+id: uav-mission-agent
+name: UAV Mission Agent
+version: 0.1.0
+role: mission_planner
+runs_on: [cloud, edge]
+description: Plans and validates UAV missions for imaging, scouting, docking, and post-flight processing.
+capabilities:
+  - mission.plan
+  - mission.validate_weather
+  - mission.monitor
+  - mission.postprocess_request
+tools:
+  - weather.forecast
+  - geofence.validate
+  - uav.dispatch
+  - object_store.upload
+inputs:
+  - mission_request
+  - weather_event
+outputs:
+  - mission_plan
+  - mission_status
+risk_level: high
+auth_scopes:
+  - mission:write
+  - uav:operate
+requires_human_approval: true

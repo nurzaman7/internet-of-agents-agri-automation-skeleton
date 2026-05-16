@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agri-agent-mesh-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: agri-agent-mesh-api
+  template:
+    metadata:
+      labels:
+        app: agri-agent-mesh-api
+    spec:
+      containers:
+        - name: api
+          image: agri-agent-mesh-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: agri-agent-mesh-secrets
+            - configMapRef:
+                name: agri-agent-mesh-config
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agri-agent-mesh-api
+spec:
+  selector:
+    app: agri-agent-mesh-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080

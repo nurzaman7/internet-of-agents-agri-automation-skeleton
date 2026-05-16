@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Physical Action Request",
+  "type": "object",
+  "required": [
+    "request_id",
+    "tenant_id",
+    "farm_id",
+    "target_device_id",
+    "action",
+    "requested_by",
+    "timestamp"
+  ],
+  "properties": {
+    "request_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "farm_id": {
+      "type": "string"
+    },
+    "field_id": {
+      "type": "string"
+    },
+    "target_device_id": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "params": {
+      "type": "object"
+    },
+    "requested_by": {
+      "type": "string"
+    },
+    "requires_approval": {
+      "type": "boolean"
+    },
+    "risk_level": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

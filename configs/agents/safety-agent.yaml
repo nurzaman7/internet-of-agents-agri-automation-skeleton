@@ -1,0 +1,24 @@
+id: safety-agent
+name: Safety Agent
+version: 0.1.0
+role: safety
+runs_on: [edge, cloud]
+description: Enforces policies before physical commands are issued.
+capabilities:
+  - policy.evaluate
+  - approval.require
+  - audit.write
+  - emergency_stop.detect
+tools:
+  - policy.engine
+  - authz.check
+  - audit.log
+inputs:
+  - action_request
+  - mission_request
+outputs:
+  - policy_decision
+risk_level: critical
+auth_scopes:
+  - policy:evaluate
+  - audit:write

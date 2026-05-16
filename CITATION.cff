@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+title: "AgriAgentMesh: Internet-of-Agents Skeleton for Reusable Cloud-Edge-Field Agriculture Automation"
+message: "If you use this repository, please cite the related works listed below."
+references:
+  - type: article
+    authors:
+      - family-names: Ahmed
+        given-names: N.
+      - family-names: De
+        given-names: D.
+      - family-names: Hussain
+        given-names: I.
+    title: "Internet of Things (IoT) for Smart Precision Agriculture and Farming in Rural Areas"
+    journal: "IEEE Internet of Things Journal"
+    year: 2018
+    volume: 5
+    issue: 6
+    start: 4890
+    end: 4899
+    doi: "10.1109/JIOT.2018.2879579"
+  - type: article
+    authors:
+      - family-names: Ahmed
+        given-names: Nurzaman
+      - family-names: Shakoor
+        given-names: Nadia
+    title: "Advancing agriculture through IoT, Big Data, and AI: A review of smart technologies enabling sustainability"
+    journal: "Smart Agricultural Technology"
+    year: 2025
+    volume: 10
+    identifiers:
+      - type: doi
+        value: "10.1016/j.atech.2025.100848"
+    url: "https://www.sciencedirect.com/science/article/pii/S2772375525000814"
+  - type: article
+    authors:
+      - family-names: Alam
+        given-names: M.
+      - family-names: Ahmed
+        given-names: N.
+      - family-names: Matam
+        given-names: R.
+      - family-names: Mukherjee
+        given-names: M.
+      - family-names: Barbhuiya
+        given-names: F. A.
+    title: "SDN-Based Reconfigurable Edge Network Architecture for Industrial Internet of Things"
+    journal: "IEEE Internet of Things Journal"
+    year: 2023
+    volume: 10
+    issue: 18
+    start: 16494
+    end: 16503
+    doi: "10.1109/JIOT.2023.3268375"
