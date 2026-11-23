@@ -1,3 +1,8 @@
+# Postponed evaluation is required here: AgentRegistry defines a method named
+# `list`, which shadows the builtin inside the class body, so an eagerly
+# evaluated `list[AgentCard]` annotation after it raises TypeError on import.
+from __future__ import annotations
+
 from pathlib import Path
 import yaml
 

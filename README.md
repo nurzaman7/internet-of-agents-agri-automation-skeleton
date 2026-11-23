@@ -1,5 +1,7 @@
 # AgriAgentMesh
 
+[![CI](https://github.com/nurzaman7/internet-of-agents-agri-automation-skeleton/actions/workflows/ci.yml/badge.svg)](https://github.com/nurzaman7/internet-of-agents-agri-automation-skeleton/actions/workflows/ci.yml)
+
 **AgriAgentMesh** is a production-oriented starter repository for building an **Internet of Agents for agriculture**: a secure, reusable agent mesh that connects cloud services, edge gateways, field sensors, UAVs, robots, vehicles, carbon monitoring devices, and human operators.
 
 The goal is not to ship one rigid farm product. The goal is to give farmers, researchers, startups, and system integrators a clean skeleton they can adapt to their own crop, field, hardware, network, and AI provider.
@@ -12,7 +14,7 @@ The goal is not to ship one rigid farm product. The goal is to give farmers, res
 - MCP-ready connector scaffolding for external tools, farm platforms, GIS, weather, carbon accounting, and equipment APIs.
 - MQTT + REST event flow for low-latency field telemetry and cloud workflows.
 - Safety guardrails for physical actuation, UAV missions, irrigation, spraying, and vehicle commands.
-- Starter agents for monitoring, mission planning, UAVs, robots, irrigation, carbon, weather, safety, and reporting.
+- Starter agents for field monitoring, UAV mission planning, carbon accounting and safety, with agent cards and a roster for the rest.
 - Docker Compose, Kubernetes skeleton, CI, schemas, prompts, and examples.
 
 ## Reference deployment pattern
@@ -76,16 +78,16 @@ flowchart TB
 
 ## Agent roster
 
-| Agent | Runs | Purpose | Typical tools |
-|---|---:|---|---|
-| `field-monitor-agent` | Edge + cloud | Detect field anomalies from sensor, weather, and image-derived events | MQTT, time-series DB, GIS |
-| `uav-mission-agent` | Cloud + edge | Plan, validate, and monitor drone missions | mission API, weather, geofence, docking API |
-| `robot-ops-agent` | Edge | Coordinate robots and rovers for scouting, sampling, and payload tasks | ROS2/MAVLink/REST adapter |
-| `irrigation-agent` | Edge | Recommend or trigger irrigation actions under policy | soil moisture, forecast, valve API |
-| `carbon-agent` | Cloud + edge | Collect activity data and estimate farm carbon events | carbon factors, fuel logs, soil/sensor data |
-| `vehicle-agent` | Edge + cloud | Track field vehicles and optimize routing or task assignment | GPS, CAN bus, fleet API |
-| `safety-agent` | Cloud + edge | Enforce approval, geofence, weather, chemical, and equipment policies | policy engine, auth, audit log |
-| `report-agent` | Cloud | Generate summaries for growers, researchers, auditors, and operators | DB, object store, LLM |
+| Agent | Status | Runs | Purpose | Typical tools |
+|---|---|---:|---|---|
+| `field-monitor-agent` | implemented | Edge + cloud | Detect field anomalies from sensor, weather, and image-derived events | MQTT, time-series DB, GIS |
+| `uav-mission-agent` | implemented | Cloud + edge | Plan, validate, and monitor drone missions | mission API, weather, geofence, docking API |
+| `robot-ops-agent` | planned | Edge | Coordinate robots and rovers for scouting, sampling, and payload tasks | ROS2/MAVLink/REST adapter |
+| `irrigation-agent` | planned | Edge | Recommend or trigger irrigation actions under policy | soil moisture, forecast, valve API |
+| `carbon-agent` | implemented | Cloud + edge | Collect activity data and estimate farm carbon events | carbon factors, fuel logs, soil/sensor data |
+| `vehicle-agent` | planned | Edge + cloud | Track field vehicles and optimize routing or task assignment | GPS, CAN bus, fleet API |
+| `safety-agent` | implemented | Cloud + edge | Enforce approval, geofence, weather, chemical, and equipment policies | policy engine, auth, audit log |
+| `report-agent` | planned | Cloud | Generate summaries for growers, researchers, auditors, and operators | DB, object store, LLM |
 
 ## Quick start
 
@@ -107,10 +109,16 @@ Seed demo agents:
 make seed
 ```
 
-Run a simulated field event:
+Run a simulated field event (no services required):
 
 ```bash
 python examples/quickstart/simulation.py --scenario examples/field-crop-carbon/farm_profile.yaml
+```
+
+Run the tests:
+
+```bash
+make test
 ```
 
 ## Reuse guide for your own system
@@ -121,7 +129,7 @@ python examples/quickstart/simulation.py --scenario examples/field-crop-carbon/f
 4. Add safety rules in `configs/policies/safety_policy.yaml`.
 5. Choose an AI provider in `.env`: `openai`, `anthropic`, or `local`.
 6. Start with recommendation-only mode. Enable physical actuation only after human approval workflows, field testing, and fail-safe validation.
-7. Deploy cloud services using Docker Compose or Kubernetes. Deploy `apps/edge-agent` on a farm gateway, industrial PC, Jetson, Raspberry Pi, or other edge node.
+7. Deploy cloud services using Docker Compose or Kubernetes. Deploy `apps/edge_agent` on a farm gateway, industrial PC, Jetson, Raspberry Pi, or other edge node.
 
 ## Provider selection
 
@@ -162,7 +170,7 @@ tests/                      Unit tests
 
 ## License
 
-Apache-2.0. Replace the license if your organization needs another public release model.
+Apache-2.0. See [`LICENSE`](LICENSE).
 
 
 ## Related Work
